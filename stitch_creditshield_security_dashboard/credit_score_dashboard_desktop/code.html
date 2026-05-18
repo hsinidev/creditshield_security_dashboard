@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VaultGuard Pro | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d8e2ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c5c6cd",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed-variant": "#374767",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary-container": "#572000",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-primary-container": "#76849f",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#39475f",
+                      "surface-container-low": "#f2f4f6",
+                      "outline": "#75777e",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#0d1c32",
+                      "inverse-primary": "#b9c7e4",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed": "#351000",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "surface-container": "#eceef0",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#ffb693",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary": "#a04100",
+                      "primary": "#000000",
+                      "on-tertiary-container": "#7484a7",
+                      "surface-tint": "#515f78",
+                      "primary-container": "#0d1c32",
+                      "secondary-fixed": "#ffdbcc",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe6b00",
+                      "on-surface-variant": "#44474d",
+                      "tertiary-fixed-dim": "#b6c6ed",
+                      "tertiary-container": "#091b39",
+                      "on-tertiary-fixed": "#091b39",
+                      "on-secondary-fixed-variant": "#7a3000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "h2": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "numeric-data": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "h3": ["Public Sans"],
+                      "h1": ["Public Sans"]
+              },
+              "fontSize": {
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .vault-gauge {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 110;
+        }
+        .security-shadow {
+            box-shadow: 0 4px 12px rgba(10, 25, 47, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-white dark:bg-slate-950 h-screen w-64 border-r border-slate-200 dark:border-slate-800 font-['Public_Sans'] text-sm font-medium">
+<div class="px-6 py-8 flex flex-col gap-2">
+<h1 class="text-lg font-black text-slate-900 dark:text-white">VaultGuard Pro</h1>
+<div class="flex items-center gap-2 mt-2">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-xs text-slate-500 uppercase tracking-widest">Secure Session Active</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col mt-4">
+<!-- Active Tab: Dashboard -->
+<a class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border-l-4 border-slate-900 dark:border-white px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+                Credit Monitor
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                Identity Shield
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                Dispute Center
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all Active: scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Reports
+            </a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-primary text-on-primary py-3 px-4 font-bold rounded flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="shield">shield</span>
+                Upgrade Security
+            </button>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 flex flex-col py-4">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+                Security Logs
+            </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-['Public_Sans'] antialiased tracking-tight docked full-width top-0 border-b border-slate-200 dark:border-slate-800 flat no shadows z-30 sticky">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-slate-900 dark:text-white tracking-widest uppercase">VaultGuard</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Pricing</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">FAQ</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="bg-slate-100 dark:bg-slate-900 border-none rounded-full py-2 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Search security assets..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 font-semibold text-sm rounded hover:opacity-80 transition-opacity">Sign In</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-10 max-w-7xl mx-auto w-full space-y-stack-lg">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-h1 text-h1 text-primary">Security Dashboard</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Institutional grade credit monitoring for your financial profile.</p>
+</div>
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-3 border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="verified" data-weight="fill">verified</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface">Data Encrypted AES-256</span>
+</div>
+</div>
+<!-- Bento Grid - Primary Score Area -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Large Gauge Card -->
+<div class="col-span-12 lg:col-span-5 bg-white border border-outline-variant security-shadow p-8 flex flex-col items-center justify-center relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<h3 class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-8 tracking-[0.2em]">FICO® Score 8</h3>
+<div class="relative w-64 h-64 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-highest" cx="128" cy="128" fill="transparent" r="100" stroke="currentColor" stroke-dasharray="628" stroke-dashoffset="157" stroke-linecap="round" stroke-width="16"></circle>
+<circle class="text-primary" cx="128" cy="128" fill="transparent" r="100" stroke="currentColor" stroke-dasharray="628" stroke-dashoffset="240" stroke-linecap="round" stroke-width="16"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-h1 text-[64px] leading-none text-primary">742</span>
+<span class="font-label-caps text-label-caps text-green-600 mt-2 uppercase tracking-widest font-bold">Very Good</span>
+</div>
+</div>
+<div class="mt-8 flex justify-between w-full text-center">
+<div>
+<p class="text-on-surface-variant text-xs uppercase font-semibold">Previous</p>
+<p class="font-numeric-data text-numeric-data text-lg mt-1">738</p>
+</div>
+<div class="w-[1px] h-10 bg-outline-variant"></div>
+<div>
+<p class="text-on-surface-variant text-xs uppercase font-semibold">Change</p>
+<p class="font-numeric-data text-numeric-data text-lg text-green-600 mt-1">+4 pts</p>
+</div>
+<div class="w-[1px] h-10 bg-outline-variant"></div>
+<div>
+<p class="text-on-surface-variant text-xs uppercase font-semibold">Next Update</p>
+<p class="font-numeric-data text-numeric-data text-lg mt-1">Oct 14</p>
+</div>
+</div>
+</div>
+<!-- Score Factors Breakdown -->
+<div class="col-span-12 lg:col-span-7 bg-white border border-outline-variant security-shadow p-0 flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-h3 text-h3 text-primary">Score Factors</h3>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Last calculated 4 hours ago</span>
+</div>
+<div class="flex-1">
+<!-- Factor Row 1 -->
+<div class="p-6 flex items-center gap-6 border-b border-outline-variant group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 bg-green-50 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined" data-icon="history" data-weight="fill">history</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-2">
+<span class="font-body-md font-bold text-primary">Payment History</span>
+<span class="text-green-600 font-bold">Excellent</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-green-600 w-[98%]"></div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Impact</span>
+<p class="text-primary font-bold">High</p>
+</div>
+</div>
+<!-- Factor Row 2 -->
+<div class="p-6 flex items-center gap-6 border-b border-outline-variant group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 bg-yellow-50 flex items-center justify-center text-yellow-700">
+<span class="material-symbols-outlined" data-icon="credit_card" data-weight="fill">credit_card</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-2">
+<span class="font-body-md font-bold text-primary">Credit Usage</span>
+<span class="text-yellow-600 font-bold">Fair (24%)</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-yellow-500 w-[65%]"></div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Impact</span>
+<p class="text-primary font-bold">High</p>
+</div>
+</div>
+<!-- Factor Row 3 -->
+<div class="p-6 flex items-center gap-6 group hover:bg-surface-bright transition-colors">
+<div class="w-12 h-12 bg-blue-50 flex items-center justify-center text-blue-700">
+<span class="material-symbols-outlined" data-icon="search" data-weight="fill">search</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-2">
+<span class="font-body-md font-bold text-primary">Inquiry Count</span>
+<span class="text-blue-600 font-bold">Low (2)</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest">
+<div class="h-full bg-blue-600 w-[90%]"></div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Impact</span>
+<p class="text-primary font-bold">Low</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bureau Comparison & Activity Log -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Multi-Bureau Comparison -->
+<div class="col-span-12 lg:col-span-8 bg-white border border-outline-variant security-shadow overflow-hidden">
+<div class="p-6 border-b border-outline-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+<h3 class="font-h3 text-h3 text-primary">Bureau Comparison</h3>
+</div>
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps">
+<tr>
+<th class="p-6 uppercase tracking-wider">Bureau</th>
+<th class="p-6 uppercase tracking-wider">Score</th>
+<th class="p-6 uppercase tracking-wider">Public Records</th>
+<th class="p-6 uppercase tracking-wider">Hard Inquiries</th>
+<th class="p-6 uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface transition-colors">
+<td class="p-6 font-bold text-primary">Equifax</td>
+<td class="p-6 font-numeric-data text-lg">742</td>
+<td class="p-6 text-on-surface-variant">0</td>
+<td class="p-6 text-on-surface-variant">2</td>
+<td class="p-6">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase rounded-full">Synchronized</span>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="p-6 font-bold text-primary">Experian</td>
+<td class="p-6 font-numeric-data text-lg">738</td>
+<td class="p-6 text-on-surface-variant">0</td>
+<td class="p-6 text-on-surface-variant">3</td>
+<td class="p-6">
+<span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold uppercase rounded-full">Synchronized</span>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="p-6 font-bold text-primary">TransUnion</td>
+<td class="p-6 font-numeric-data text-lg">745</td>
+<td class="p-6 text-on-surface-variant">1</td>
+<td class="p-6 text-on-surface-variant">2</td>
+<td class="p-6">
+<span class="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold uppercase rounded-full">In Dispute</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Recent Activity -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-outline-variant security-shadow flex flex-col">
+<div class="p-6 border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-h3 text-h3 text-primary">Credit Activity</h3>
+<a class="text-primary text-xs font-bold uppercase tracking-widest hover:underline" href="#">View All</a>
+</div>
+<div class="flex-1 overflow-y-auto max-h-[400px]">
+<!-- Activity Item 1 -->
+<div class="p-5 border-b border-outline-variant flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">New Credit Line Opened</p>
+<p class="text-xs text-on-surface-variant mt-1">CHASE SAPPHIRE - $12,000 limit</p>
+<p class="text-[10px] text-slate-400 mt-2 uppercase font-semibold">2 Days Ago</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="p-5 border-b border-outline-variant flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="report_problem">report_problem</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Hard Inquiry Detected</p>
+<p class="text-xs text-on-surface-variant mt-1">MERCEDES BENZ FINANCIAL</p>
+<p class="text-[10px] text-slate-400 mt-2 uppercase font-semibold">5 Days Ago</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="p-5 border-b border-outline-variant flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Monthly Payment Reported</p>
+<p class="text-xs text-on-surface-variant mt-1">CITI BANK NA - On-time</p>
+<p class="text-[10px] text-slate-400 mt-2 uppercase font-semibold">1 Week Ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Promotional Banner / Tool -->
+<div class="relative bg-primary p-12 text-on-primary border border-outline overflow-hidden">
+<div class="relative z-10 max-w-2xl">
+<h3 class="font-h2 text-h2 mb-4">Protect Your Financial Identity</h3>
+<p class="font-body-lg text-slate-300 mb-8">Enable real-time dark web monitoring and $1M identity theft insurance to secure your assets against evolving threats.</p>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-primary px-8 py-4 font-bold rounded hover:opacity-90 transition-opacity">Activate Identity Shield</button>
+<button class="bg-transparent border border-white px-8 py-4 font-bold rounded hover:bg-white/10 transition-colors">Compare Plans</button>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 w-1/3 hidden lg:block opacity-20">
+<img class="w-full h-full object-cover" data-alt="A high-tech digital security interface displaying complex data encryption patterns and interconnected nodal networks in deep navy and vibrant orange tones. The visual style is sophisticated and institutional, emphasizing military-grade protection and architectural stability. Glowing circuit paths weave through a dark, professional atmosphere, conveying a sense of invisible but impenetrable barriers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb4w2d2-xqU2mT3zHs9J0VcgeF6_O7C1PKbAdhsgSZcafNGy4HCsQVPsaCshEjtCtJyxy1OVS4CI9ASf-rsQeBKE22SkwEiK1a0kzn8N5TQIjtGGEa8FHgBGEgj3M4xqBs8Too3XlVxn0fl521ehJUnUPeC_TK56_jQndleHrVc8l-SvHlyzgE4Nmer_4-ZMIWvy2mBR5S_CfeycQIzgMxnfUA0PC-2fzjYitd0kiSqp5MLgYUmFgswR7waVP9yp2g7_Byd_GFe9DI"/>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4">
+<p class="font-semibold text-slate-900 dark:text-white uppercase tracking-widest hidden md:block">VaultGuard Security</p>
+<span>© 2024 VaultGuard Security. Institutional Grade Protection. Member FDIC.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 Standard link hover" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 Standard link hover" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 Standard link hover" href="#">Security Disclosure</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 Standard link hover" href="#">Compliance</a>
+</div>
+</footer>
+</main>
+</body></html>

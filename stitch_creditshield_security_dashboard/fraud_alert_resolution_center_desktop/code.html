@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VaultGuard | Fraud Alert Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d8e2ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c5c6cd",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed-variant": "#374767",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary-container": "#572000",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#39475f",
+                      "surface-container-low": "#f2f4f6",
+                      "outline": "#75777e",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#0d1c32",
+                      "inverse-primary": "#b9c7e4",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed": "#351000",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "surface-container": "#eceef0",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#ffb693",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary": "#a04100",
+                      "primary": "#000000",
+                      "on-tertiary-container": "#7484a7",
+                      "surface-tint": "#515f78",
+                      "primary-container": "#0d1c32",
+                      "secondary-fixed": "#ffdbcc",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe6b00",
+                      "on-surface-variant": "#44474d",
+                      "tertiary-fixed-dim": "#b6c6ed",
+                      "tertiary-container": "#091b39",
+                      "on-tertiary-fixed": "#091b39",
+                      "on-secondary-fixed-variant": "#7a3000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "h2": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "numeric-data": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "h3": ["Public Sans"],
+                      "h1": ["Public Sans"]
+              },
+              "fontSize": {
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-['Public_Sans'] antialiased tracking-tight docked full-width top-0 border-b border-slate-200 dark:border-slate-800 flat no shadows z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold text-slate-900 dark:text-white tracking-widest uppercase">VaultGuard</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Pricing</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">FAQ</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-900 dark:text-slate-50 font-semibold px-4 py-2 hover:opacity-80 duration-150">Sign In</button>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-['Public_Sans'] text-sm font-medium h-screen w-64 border-r border-slate-200 dark:border-slate-800 flat no shadows sticky left-0 top-0 flex flex-col z-40 hidden lg:flex">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A professional headshot of a financial executive in his mid-forties, wearing a sharp navy blue suit and a crisp white shirt. The background is a blurred high-end office environment with soft, warm lighting. The image style is clean, modern, and conveys trust and authority, perfectly matching a premium banking interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnc1g9L-r2a_E-5wwhwu_rmSpnFS9EbeVnQYpRVDEW_UgzkL6zeSZ3CeBRCO2VAtMXzzcFDdI6-fpR04YB6yZormU5cQeT9KSFvoIRDu4nLeuAar-WFFFB1C1lB22BUBizkDn9SFBNt7r7d-AVJ8L0ErRcxnmnNUpia1_E7YKW69QerqzkM0aNcVx5nLf-iB9OsFvaGuaGR1a6KU2grpaGhuQkRHc78xjx-vqyGa7kyz5_fsVrQhbcf_W2aaVuCpvrwrhq7ijlMOa3"/>
+<div>
+<p class="font-black text-slate-900 dark:text-white">VaultGuard Pro</p>
+<p class="text-xs text-secondary font-semibold uppercase tracking-wider">Secure Session Active</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+                    Credit Monitor
+                </a>
+<a class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border-l-4 border-slate-900 dark:border-white px-4 py-3 flex items-center gap-3 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                    Identity Shield
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                    Dispute Center
+                </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Reports
+                </a>
+</nav>
+<div class="mt-auto p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-primary-container text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-opacity mb-4">
+                    Upgrade Security
+                </button>
+<div class="flex flex-col gap-1">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-2 flex items-center gap-3 text-xs hover:text-slate-900" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-2 flex items-center gap-3 text-xs hover:text-slate-900" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="admin_panel_settings">admin_panel_settings</span>
+                        Security Logs
+                    </a>
+<a class="text-error px-4 py-2 flex items-center gap-3 text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                        Sign Out
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content: Fraud Alert Center -->
+<main class="flex-1 flex flex-col lg:flex-row h-[calc(100vh-72px)] overflow-hidden">
+<!-- Left Panel: Alerts List -->
+<section class="w-full lg:w-[400px] bg-white border-r border-slate-200 flex flex-col">
+<div class="p-6 border-b border-slate-200 flex justify-between items-center bg-surface-bright">
+<h1 class="font-h3 text-h3 text-primary">Fraud Alerts</h1>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-1 font-bold uppercase tracking-tighter rounded">3 Active</span>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Critical Alert Item (Selected State) -->
+<div class="p-6 border-b-4 border-b-secondary bg-primary-container cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="flex items-center gap-1 text-[10px] font-bold text-on-secondary-fixed bg-secondary-fixed px-2 py-0.5 rounded uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+                                Critical
+                            </span>
+<span class="font-numeric-data text-slate-400 text-xs">2 MIN AGO</span>
+</div>
+<h4 class="font-h3 text-lg text-white mb-1">New Credit Inquiry</h4>
+<p class="text-sm text-slate-400 line-clamp-1">Bank of America - San Francisco, CA</p>
+</div>
+<!-- Warning Alert Item -->
+<div class="p-6 border-b border-slate-200 hover:bg-slate-50 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="flex items-center gap-1 text-[10px] font-bold text-on-secondary-fixed bg-secondary-fixed px-2 py-0.5 rounded uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">error</span>
+                                Warning
+                            </span>
+<span class="font-numeric-data text-slate-500 text-xs">2 HOURS AGO</span>
+</div>
+<h4 class="font-h3 text-lg text-primary mb-1">Address Change</h4>
+<p class="text-sm text-on-surface-variant line-clamp-1">Postal Update Requested: Houston, TX</p>
+</div>
+<!-- Warning Alert Item -->
+<div class="p-6 border-b border-slate-200 hover:bg-slate-50 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="flex items-center gap-1 text-[10px] font-bold text-on-secondary-fixed bg-secondary-fixed px-2 py-0.5 rounded uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">error</span>
+                                Warning
+                            </span>
+<span class="font-numeric-data text-slate-500 text-xs">1 DAY AGO</span>
+</div>
+<h4 class="font-h3 text-lg text-primary mb-1">Suspicious Login</h4>
+<p class="text-sm text-on-surface-variant line-clamp-1">New device detected from Singapore</p>
+</div>
+<!-- Resolved Item -->
+<div class="p-6 border-b border-slate-200 opacity-60 hover:opacity-100 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="flex items-center gap-1 text-[10px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Resolved
+                            </span>
+<span class="font-numeric-data text-slate-500 text-xs">2 DAYS AGO</span>
+</div>
+<h4 class="font-h3 text-lg text-primary mb-1">Large Purchase</h4>
+<p class="text-sm text-on-surface-variant line-clamp-1">Apple Store - $2,499.00</p>
+</div>
+</div>
+</section>
+<!-- Right Panel: Alert Detail View -->
+<section class="flex-1 bg-surface flex flex-col overflow-y-auto no-scrollbar">
+<!-- Detail Header -->
+<div class="p-8 lg:p-12 border-b border-slate-200 bg-white">
+<div class="max-w-4xl mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+<div>
+<nav class="flex gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+<a class="hover:text-primary" href="#">Shield</a>
+<span>/</span>
+<a class="text-primary" href="#">Fraud Detail</a>
+</nav>
+<h2 class="font-h2 text-h2 text-primary mb-2">New Credit Inquiry</h2>
+<p class="text-body-lg text-on-surface-variant max-w-xl">A credit application was submitted in your name at Bank of America. This activity is considered highly suspicious if you did not initiate it.</p>
+</div>
+<div class="flex gap-3 shrink-0">
+<button class="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary font-bold uppercase tracking-widest text-xs rounded hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+                                    Resolve
+                                </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-secondary text-white font-bold uppercase tracking-widest text-xs rounded hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                                    Report Fraud
+                                </button>
+</div>
+</div>
+<!-- Data Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-surface-container-low border border-slate-200 rounded-lg">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Organization</p>
+<p class="text-lg font-bold text-primary">Bank of America</p>
+<p class="text-xs text-on-surface-variant mt-1">Institutional Credit Group</p>
+</div>
+<div class="p-6 bg-surface-container-low border border-slate-200 rounded-lg">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Inquiry Type</p>
+<p class="text-lg font-bold text-primary">Hard Inquiry</p>
+<p class="text-xs text-secondary font-bold mt-1">-5 Points Impact</p>
+</div>
+<div class="p-6 bg-surface-container-low border border-slate-200 rounded-lg">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Location</p>
+<p class="text-lg font-bold text-primary">San Francisco, CA</p>
+<p class="text-xs text-on-surface-variant mt-1">Branch ID: #88219</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Map Section -->
+<div class="p-8 lg:p-12">
+<div class="max-w-4xl mx-auto w-full">
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-200 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<span class="text-sm font-bold text-primary uppercase tracking-wider">Activity Location</span>
+</div>
+<span class="text-xs font-numeric-data text-on-surface-variant">Lat: 37.7749 | Lon: -122.4194</span>
+</div>
+<!-- Map Placeholder -->
+<div class="h-[400px] bg-slate-100 relative group overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="A high-contrast, minimalist topographical map of San Francisco showing detailed street grids and urban structures. The visual style is monochromatic with navy blue accents for points of interest, maintaining a clean, institutional data-visualization aesthetic. A single glowing orange marker indicates the specific branch location where the fraudulent inquiry occurred." data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_MqiQxkpBjir-WpgIhUHqzPZ2qG0EAc3XTs2bXG3ta2Y8VZ2ISAi5kDVM1fBgPq1v-GKxDLwt_j7jIirJstHCHR31W4Ss-UAQfHQqZ8iQoKLs4FezzPPAu-3UmHgVyEnBSZ8RnTnA5BdqHwogoZF5wUOjCkVEwlX30qSMOTpiJ9JdWkHKNZdI61eQY7QF-ULSHjlJXbNL_nLsFPsFU18zOTcKr8aQVSN3JrgUFjIXdVOm_oNyffsTLoX9NKdIdKnMBrbPa66mYEjt"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="absolute -inset-4 bg-secondary/30 rounded-full animate-ping"></div>
+<div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 p-4 bg-white border border-slate-200 rounded shadow-xl max-w-xs">
+<h5 class="text-sm font-bold text-primary mb-1">Financial District Branch</h5>
+<p class="text-xs text-on-surface-variant leading-relaxed">555 California St, San Francisco, CA 94104. Distance from registered home: 1,842 miles.</p>
+</div>
+</div>
+</div>
+<!-- Protective Actions -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-lg">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="lock_person">lock_person</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-1">Freeze Credit File</h4>
+<p class="text-sm text-on-surface-variant mb-3">Prevent any new creditors from accessing your credit report instantly.</p>
+<button class="text-xs font-bold text-secondary uppercase tracking-widest hover:underline">Enable Freeze Now →</button>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 bg-white border border-slate-200 rounded-lg">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white" data-icon="contact_phone">contact_phone</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-1">Contact Authorities</h4>
+<p class="text-sm text-on-surface-variant mb-3">We have prepared a pre-filled report for the FTC and local law enforcement.</p>
+<button class="text-xs font-bold text-secondary uppercase tracking-widest hover:underline">Download Report →</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 w-full border-t border-slate-200 dark:border-slate-800 flat no shadows z-50">
+<div class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto">
+<p>© 2024 VaultGuard Security. Institutional Grade Protection. Member FDIC.</p>
+<div class="flex gap-6">
+<a class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Security Disclosure</a>
+<a class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</body></html>

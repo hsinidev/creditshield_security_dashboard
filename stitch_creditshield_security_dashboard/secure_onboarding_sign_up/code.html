@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Onboarding | VaultGuard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d8e2ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c5c6cd",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed-variant": "#374767",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary-container": "#572000",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-primary-container": "#76849f",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#39475f",
+                      "surface-container-low": "#f2f4f6",
+                      "outline": "#75777e",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#0d1c32",
+                      "inverse-primary": "#b9c7e4",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed": "#351000",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "surface-container": "#eceef0",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#ffb693",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary": "#a04100",
+                      "primary": "#000000",
+                      "on-tertiary-container": "#7484a7",
+                      "surface-tint": "#515f78",
+                      "primary-container": "#0d1c32",
+                      "secondary-fixed": "#ffdbcc",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe6b00",
+                      "on-surface-variant": "#44474d",
+                      "tertiary-fixed-dim": "#b6c6ed",
+                      "tertiary-container": "#091b39",
+                      "on-tertiary-fixed": "#091b39",
+                      "on-secondary-fixed-variant": "#7a3000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "h2": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "numeric-data": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "h3": ["Public Sans"],
+                      "h1": ["Public Sans"]
+              },
+              "fontSize": {
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { border-color: #0d1c32; color: #0d1c32; }
+        .step-inactive { border-color: #e2e8f0; color: #94a3b8; }
+        .vault-card {
+            box-shadow: 0 4px 12px rgba(10, 25, 47, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen flex flex-col">
+<header class="bg-white dark:bg-slate-950 font-['Public_Sans'] antialiased tracking-tight docked full-width top-0 border-b border-slate-200 dark:border-slate-800 flat no shadows z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold text-slate-900 dark:text-white tracking-widest uppercase">
+                VaultGuard
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Pricing</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">FAQ</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Support</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    SECURE SESSION
+                </span>
+<button class="bg-primary-container text-on-primary px-4 py-2 text-sm font-semibold rounded-lg hover:opacity-80 transition-all duration-150">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-stack-lg">
+<div class="w-full max-w-[560px]">
+<div class="mb-stack-lg text-center">
+<h1 class="font-h1 text-h1 text-primary-container mb-2">Create Your Secure Vault</h1>
+<p class="font-body-md text-on-surface-variant">Join thousands of members securing their financial future with institutional-grade protection.</p>
+</div>
+<nav class="flex justify-between items-center mb-stack-lg relative px-4">
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-surface-container-highest -z-10 -translate-y-1/2"></div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-numeric-data ring-4 ring-white">1</div>
+<span class="font-label-caps text-primary-container">ACCOUNT</span>
+</div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-primary-container text-primary-container flex items-center justify-center font-numeric-data ring-4 ring-white">2</div>
+<span class="font-label-caps text-primary-container">IDENTITY</span>
+</div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-surface-container-highest text-on-surface-variant flex items-center justify-center font-numeric-data ring-4 ring-white">3</div>
+<span class="font-label-caps text-on-surface-variant">SECURITY</span>
+</div>
+</nav>
+<div class="vault-card bg-white border border-outline-variant rounded-xl overflow-hidden mb-stack-md">
+<div class="h-1 bg-secondary-container w-1/2"></div>
+<div class="p-8">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-h3 text-h3 text-primary-container">Identity Verification</h2>
+<div class="flex items-center gap-1 px-2 py-1 bg-surface-container-low rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-caps text-on-surface-variant">STEP 2 OF 3</span>
+</div>
+</div>
+<form class="space-y-stack-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-sm">
+<div class="space-y-2">
+<label class="font-label-caps text-on-surface-variant block">LEGAL FIRST NAME</label>
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all" placeholder="John" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-on-surface-variant block">LEGAL LAST NAME</label>
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-on-surface-variant block">SOCIAL SECURITY NUMBER (SSN)</label>
+<div class="relative">
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all pr-12 font-numeric-data" placeholder="•••-••-••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary-container" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Your SSN is encrypted using AES-256 and is only used for identity verification with credit bureaus.</p>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-on-surface-variant block">DATE OF BIRTH</label>
+<div class="grid grid-cols-3 gap-2">
+<select class="border border-outline-variant rounded-lg px-2 py-3 focus:border-primary-container outline-none">
+<option>Month</option>
+<option>Jan</option>
+<option>Feb</option>
+</select>
+<select class="border border-outline-variant rounded-lg px-2 py-3 focus:border-primary-container outline-none">
+<option>Day</option>
+<option>01</option>
+<option>02</option>
+</select>
+<select class="border border-outline-variant rounded-lg px-2 py-3 focus:border-primary-container outline-none">
+<option>Year</option>
+<option>1990</option>
+<option>1991</option>
+</select>
+</div>
+</div>
+<div class="pt-stack-sm border-t border-surface-container">
+<div class="flex items-start gap-3 mb-stack-md">
+<input class="mt-1 rounded border-outline-variant text-primary-container focus:ring-primary-container" type="checkbox"/>
+<span class="text-numeric-data text-on-surface-variant leading-relaxed">
+                                    I authorize VaultGuard to verify my identity and obtain my credit report data to provide monitoring services.
+                                </span>
+</div>
+<div class="flex flex-col md:flex-row gap-4">
+<button class="flex-1 border border-outline-variant text-primary-container font-semibold py-3 rounded-lg hover:bg-surface-container-low transition-all" type="button">
+                                    Previous Step
+                                </button>
+<button class="flex-1 bg-primary-container text-on-primary font-semibold py-3 rounded-lg hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+                                    Verify Identity
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2">
+<img alt="SSL Certified" class="h-8 w-auto" data-alt="A detailed close-up of a digital security certification badge, featuring a high-contrast shield icon and the text SSL SECURED in a crisp sans-serif font. The visual style is clean and professional, with a palette of deep navy and silver, set against a soft, bright studio background with natural light. The overall mood conveys trust, stability, and institutional grade protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZxJbVudhE5wAGgW9vL_ycpIcuQ5B4Rc6bq1mK-UkEU0zP2arB82ztYVDR_bRE85YARFL_lrTo7WBqJrwsmCx3R0FLNGuOq5CaEq-54RZo4c9AO1HE4B6iKxgelbGUCQLPgp2yHyS21vix7VO9WmyN3xpQP37dlc41RblOyJw0CVFaWLtgDfqwJ7m_59OwbEL_RaZM5ilwEny292aojmEZCVjEpaTMR1Lu77IlJv7OIgAb9V6xWsXmX6uXBKMZ245sQgEqjrSZOrIl"/>
+<span class="text-label-caps">256-BIT SSL</span>
+</div>
+<div class="flex items-center gap-2">
+<img alt="SOC2 Compliant" class="h-8 w-auto" data-alt="A professional corporate compliance badge representing SOC2 standards, shown as a polished metallic seal on a clean white surface. The emblem features intricate line work and a central checkmark, utilizing a sophisticated color scheme of slate gray and primary navy blue. The lighting is bright and airy, reflecting a modern, transparent fintech aesthetic designed to evoke a sense of high-stakes reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGo2GF618r8We56iEexo75WHix_yxl8ZRz8wJVeYIuOCuJdMoST6Bd1LSucPHo_b4uwQxV6wZzc0CDHLiCR7dfwzq_25hbqd3-LgKCcSwv1VoMBxmss6NwAhuKrbNVKC55waJ7bhldp6_Ux85D_332Y2GXkDdeNs6iZhIUJD889f42Isgy66g6LVp8jYnK9FLaDgNxP0sp-M3Y7Nxxu4cCZp8rCGd703DlJFrgMtGoviNu3OIB_DId1WD3D0lUzFnmgyuwMA4veHu3"/>
+<span class="text-label-caps">SOC2 TYPE II</span>
+</div>
+<div class="flex items-center gap-2">
+<img alt="FDIC Member" class="h-8 w-auto" data-alt="A clean, authoritative FDIC member badge rendered in a professional minimalist style. The logo is sharp and clear, presented in a corporate navy blue on a white card-like background with a subtle drop shadow. The environment is high-key and professional, with a visual tone that is stoic, precise, and transparent, mimicking the visual identity of a major global financial institution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs9RX0d8nTGNnmB3kykT1NJnsaNIc2CBE4WqOvgPWDhmKa1pM9T0w_-mubugN0UGTnqivAdxGiJwnXlevQ-g556xj_Bf1NgSIe1BN1agTXLjp9M0phgSlMjtxQWFDCimJdaaLXSLWP7gozalozV2P5Mp0Bq-SvBGAKa75-onusLk2gS-7judiAUeLbCkJ2gi3-0JqcbOmBDvVBKxGyKcd2PQd8eWiUL5hqpja5OSqMv_A8yoWiQNDIJC7ethMR5w35oaNCfyZDex-b"/>
+<span class="text-label-caps">MEMBER FDIC</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto">
+<div class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400">
+                © 2024 VaultGuard Security. Institutional Grade Protection. Member FDIC.
+            </div>
+<div class="flex gap-6">
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Terms of Service</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Security Disclosure</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</body></html>

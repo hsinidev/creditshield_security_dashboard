@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VaultGuard | Credit Recovery Community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d8e2ff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c5c6cd",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed-variant": "#374767",
+                      "primary-fixed": "#d6e3ff",
+                      "on-secondary-container": "#572000",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-primary-container": "#76849f",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-dim": "#d8dadc",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "background": "#f7f9fb",
+                      "primary-fixed-dim": "#b9c7e4",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#39475f",
+                      "surface-container-low": "#f2f4f6",
+                      "outline": "#75777e",
+                      "tertiary": "#000000",
+                      "on-primary-fixed": "#0d1c32",
+                      "inverse-primary": "#b9c7e4",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-secondary-fixed": "#351000",
+                      "surface-variant": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "surface-container": "#eceef0",
+                      "surface-bright": "#f7f9fb",
+                      "inverse-surface": "#2d3133",
+                      "secondary-fixed-dim": "#ffb693",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary": "#a04100",
+                      "primary": "#000000",
+                      "on-tertiary-container": "#7484a7",
+                      "surface-tint": "#515f78",
+                      "primary-container": "#0d1c32",
+                      "secondary-fixed": "#ffdbcc",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe6b00",
+                      "on-surface-variant": "#44474d",
+                      "tertiary-fixed-dim": "#b6c6ed",
+                      "tertiary-container": "#091b39",
+                      "on-tertiary-fixed": "#091b39",
+                      "on-secondary-fixed-variant": "#7a3000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "margin-mobile": "16px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "h2": ["Public Sans"],
+                      "body-md": ["Public Sans"],
+                      "body-lg": ["Public Sans"],
+                      "numeric-data": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "h3": ["Public Sans"],
+                      "h1": ["Public Sans"]
+              },
+              "fontSize": {
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .vault-card {
+            box-shadow: 0 4px 12px rgba(10, 25, 47, 0.04);
+            border: 1px solid #E2E8F0;
+        }
+        .secure-header {
+            border-top: 4px solid #000000;
+        }
+        .status-success { border-top-color: #2e7d32; }
+        .status-warning { border-top-color: #fe6b00; }
+        .status-info { border-top-color: #515f78; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 font-['Public_Sans'] antialiased tracking-tight docked full-width top-0 border-b border-slate-200 dark:border-slate-800 flat no shadows fixed w-full z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold text-slate-900 dark:text-white tracking-widest uppercase">VaultGuard</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Pricing</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">FAQ</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500" data-icon="search">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 text-label-caps rounded font-semibold active:opacity-80 duration-150 transition-all uppercase">Sign In</button>
+</div>
+</div>
+</header>
+<div class="flex pt-[72px]">
+<!-- SideNavBar -->
+<aside class="bg-white dark:bg-slate-950 font-['Public_Sans'] text-sm font-medium h-screen w-64 border-r border-slate-200 dark:border-slate-800 flat no shadows fixed left-0 top-0 hidden lg:flex flex-col z-40 pt-[72px]">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-600" data-icon="person">person</span>
+</div>
+<div>
+<div class="text-slate-900 font-bold">VaultGuard Pro</div>
+<div class="text-[10px] text-slate-500 uppercase tracking-widest">Secure Session Active</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span>Credit Monitor</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Identity Shield</span>
+</a>
+<a class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border-l-4 border-slate-900 dark:border-white px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Dispute Center</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100">
+<button class="w-full bg-secondary text-white py-3 rounded-lg text-label-caps font-bold transition-transform active:scale-[0.98]">Upgrade Security</button>
+</div>
+<div class="px-2 pb-6">
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 text-xs hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 text-xs hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Security Logs</span>
+</a>
+<a class="text-error px-4 py-2 flex items-center gap-3 text-xs hover:opacity-80 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 p-margin-mobile md:p-margin-desktop bg-surface min-h-screen">
+<div class="max-w-container-max mx-auto space-y-stack-lg">
+<!-- Page Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface mb-2">Community Recovery Forum</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Connect with others navigating the credit system. Share verified strategies, document success stories, and stay informed about emerging scams.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-on-primary px-8 py-3 rounded text-label-caps font-bold flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="add_comment">add_comment</span>
+                            NEW DISCUSSION
+                        </button>
+</div>
+</section>
+<!-- Discussion Layout (Asymmetric/Bento) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+<!-- Sidebar Controls & Stats -->
+<div class="xl:col-span-3 space-y-stack-md">
+<div class="bg-white vault-card p-6 rounded-lg secure-header status-info">
+<h3 class="font-h3 text-label-caps text-on-surface-variant mb-4 uppercase">Filter By Category</h3>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-between p-2 rounded hover:bg-slate-50 text-body-md text-on-surface">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-600"></span>Success Stories</span>
+<span class="text-numeric-data text-slate-400">124</span>
+</button>
+<button class="w-full flex items-center justify-between p-2 rounded hover:bg-slate-50 text-body-md text-on-surface">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-secondary-container"></span>Advice Needed</span>
+<span class="text-numeric-data text-slate-400">89</span>
+</button>
+<button class="w-full flex items-center justify-between p-2 rounded hover:bg-slate-50 text-body-md text-on-surface">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-error"></span>Scam Alert</span>
+<span class="text-numeric-data text-slate-400">42</span>
+</button>
+<button class="w-full flex items-center justify-between p-2 rounded hover:bg-slate-50 text-body-md text-on-surface">
+<span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-300"></span>General Repair</span>
+<span class="text-numeric-data text-slate-400">256</span>
+</button>
+</div>
+</div>
+<div class="bg-primary-container text-white p-6 rounded-lg relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-h3 text-lg mb-2">Verified Members</h4>
+<p class="text-xs text-on-primary-container mb-4">Active contributors with verified credit improvements.</p>
+<div class="flex -space-x-2">
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A professional headshot of a middle-aged man with short hair and a clean-shaven face, looking directly into the camera with a confident and trustworthy expression. The lighting is bright and corporate, emphasizing a clean and secure atmosphere, perfectly matching a professional financial security platform's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYJxK_b8YCQCHL6EsZycRNXkR82IOS2mk5LqpS-06Nhib8sY5G78sxvBBS4XeczjVjeZCaAzDj8d0eOAe1c5el5I4Hd5-PNauFv4o9asG6EVMjtYwfbswQStUn4Eq9nPafyK3lZP5etxdM487lemAUkguPZ6M5ppX8VGTzNYl8LpGFaBHGiKO2bt4rGqmpyuy8kE8Iyu_vprvC8LDQWjoty-YfrV4EEGO_6OLc6C3JU3xYQHqixVutUq6guBcOo1qJqy6feQjvnqH1"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A studio portrait of a woman in business attire, smiling warmly against a soft-focus office background. The color palette is composed of professional grays and whites, conveying a sense of reliability and community. The visual style is sharp and modern, suitable for a high-stakes credit recovery community profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD41VmPDZOq1oGG8fav_hTsk8AoFdp4X4AX-29_uWp4evhegvW67hoyQxvQNhYIT1h36JkM6NmMYtqMWC1amaCi9d37BOzmV721ouyOLQVPhEj_8GQ67RZj6VxQjSXLOuutPtduKkRaX5kpSfDnkCB7rECrAMbAcdDiXdYynhZC4FbL_nOfrb89lZzZXGhISHXSseY79Uuf3CnaC7n0rF-jZ8hbdznTFr5sEiCrpYGVPrjakq-z5Wf8GNtqIcTJf2M15IhXZx9IMNDm"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="A minimalist portrait of a man in a professional setting, featuring high-key lighting that creates a bright, modern look. The image focuses on a friendly and approachable persona, integrating deep blacks and pristine whites to maintain the vault-like, secure branding of the VaultGuard platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPC5VVnw55ceF3_FgkKoFdGrvZkywbjVopCejtxe8ZT-VD97JlFz1m6ldtNuIiG8jTirsG09F0xupmWD03BJcsXZJgaJPNKzAZgk_MO7a-scvmeurKQMOL5RpcxPG1TCk0Zz4P8ACRuilhMoiDqJxgLGufwD8Y-dD0gMJyMj317gB1nDE7Wc5RESTt5EGYhqHeUS9TLi00gB5AUhmfy2edOrYaqrg2X7qULoBNSEUvrZDpsvb5n-Lvr4sdArxyXs6dqnq1ESHtvDb1"/>
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-xs font-bold border-2 border-primary-container">+4k</div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="shield">shield</span>
+</div>
+</div>
+</div>
+<!-- Discussion List -->
+<div class="xl:col-span-9 space-y-gutter">
+<!-- Search & Sort Bar -->
+<div class="bg-white vault-card p-4 rounded flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded text-body-md focus:ring-2 focus:ring-primary" placeholder="Search stories, tips, or members..." type="text"/>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<span class="text-label-caps text-slate-400 uppercase">Sort:</span>
+<select class="bg-transparent border-none text-body-md font-semibold text-on-surface focus:ring-0">
+<option>Most Recent</option>
+<option>Top Voted</option>
+<option>Most Active</option>
+</select>
+</div>
+</div>
+<!-- Thread 1: Success Story -->
+<article class="bg-white vault-card rounded-lg overflow-hidden secure-header status-success hover:border-slate-400 transition-colors cursor-pointer">
+<div class="p-6">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-center p-2 bg-surface rounded min-w-[48px]">
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="arrow_upward">arrow_upward</span>
+<span class="text-numeric-data font-bold">156</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="arrow_downward">arrow_downward</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Success Story</span>
+<span class="text-slate-300">•</span>
+<span class="text-xs text-slate-400">Posted by <span class="font-semibold text-slate-700 underline">Marcus_V</span> 4h ago</span>
+</div>
+<h2 class="font-h2 text-xl text-on-surface">Finally hit 740 after 18 months of disciplined disputes</h2>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-primary-container text-white px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold uppercase">Lvl 4 Security</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-4">
+                                    I started with a 510 and three collections. Through the VaultGuard dispute tools and following the monthly monitoring reports, I successfully removed two inaccurate marks. Here is my exact step-by-step process...
+                                </p>
+<div class="flex items-center gap-6 border-t border-slate-50 pt-4">
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-numeric-data">48 Comments</span>
+</button>
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span class="text-numeric-data">Share</span>
+</button>
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+<span class="text-numeric-data">Save</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Thread 2: Scam Alert -->
+<article class="bg-white vault-card rounded-lg overflow-hidden secure-header status-warning hover:border-slate-400 transition-colors cursor-pointer">
+<div class="p-6">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-center p-2 bg-surface rounded min-w-[48px]">
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="arrow_upward">arrow_upward</span>
+<span class="text-numeric-data font-bold">312</span>
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="arrow_downward">arrow_downward</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-orange-50 text-secondary text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Scam Alert</span>
+<span class="text-slate-300">•</span>
+<span class="text-xs text-slate-400">Posted by <span class="font-semibold text-slate-700 underline">Shield_Admin</span> 12h ago</span>
+</div>
+<h2 class="font-h2 text-xl text-on-surface">New Phishing Attempt: Fake "Credit Limit Increase" Emails</h2>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-error text-white px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="admin_panel_settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="text-[10px] font-bold uppercase">Staff</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">
+                                    We've received reports of users getting emails claiming to be from major banks offering instant limit increases if you "re-verify" your SSN. Do not click. Official communications will always appear in your bank's secure portal...
+                                </p>
+<div class="flex items-center gap-6 border-t border-slate-50 pt-4">
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-numeric-data">12 Comments</span>
+</button>
+<button class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="report">report</span>
+<span class="text-numeric-data">Report Scam</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Rich Text Editor Section -->
+<section class="bg-white vault-card rounded-lg overflow-hidden secure-header status-info">
+<div class="p-6">
+<h3 class="font-h3 text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+                                    Quick Reply to "Finally hit 740..."
+                                </h3>
+<div class="border border-slate-200 rounded-lg overflow-hidden">
+<!-- Toolbar -->
+<div class="bg-slate-50 border-b border-slate-200 p-2 flex items-center gap-1">
+<button class="p-1.5 hover:bg-white rounded text-slate-600 material-symbols-outlined text-sm" data-icon="format_bold">format_bold</button>
+<button class="p-1.5 hover:bg-white rounded text-slate-600 material-symbols-outlined text-sm" data-icon="format_italic">format_italic</button>
+<button class="p-1.5 hover:bg-white rounded text-slate-600 material-symbols-outlined text-sm" data-icon="format_list_bulleted">format_list_bulleted</button>
+<button class="p-1.5 hover:bg-white rounded text-slate-600 material-symbols-outlined text-sm" data-icon="link">link</button>
+<div class="w-px h-4 bg-slate-200 mx-1"></div>
+<button class="p-1.5 hover:bg-white rounded text-slate-600 material-symbols-outlined text-sm" data-icon="lock">lock</button>
+<span class="text-[10px] text-slate-400 font-bold uppercase ml-1">Encrypted Field</span>
+</div>
+<!-- Content Area -->
+<textarea class="w-full p-4 text-body-md border-none focus:ring-0 placeholder:text-slate-300" placeholder="Type your secure response..." rows="4"></textarea>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2 text-xs text-slate-500">
+<span class="material-symbols-outlined text-sm text-green-600" data-icon="security">security</span>
+                                        Response will be encrypted via VaultGuard TLS 1.3
+                                    </div>
+<button class="bg-primary text-on-primary px-8 py-2 rounded text-label-caps font-bold">POST REPLY</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 lg:pl-64">
+<div class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto">
+<div class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400">
+                © 2024 VaultGuard Security. Institutional Grade Protection. Member FDIC.
+            </div>
+<div class="flex items-center gap-6">
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">Privacy Policy</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">Terms of Service</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">Security Disclosure</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</body></html>

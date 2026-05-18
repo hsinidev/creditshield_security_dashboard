@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c5c6cd",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#44474d",
+                    "secondary-fixed": "#ffdbcc",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#d6e3ff",
+                    "on-tertiary-container": "#7484a7",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed-dim": "#ffb693",
+                    "surface-container": "#eceef0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-secondary-container": "#572000",
+                    "tertiary": "#000000",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed": "#0d1c32",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#b9c7e4",
+                    "surface-bright": "#f7f9fb",
+                    "on-primary-container": "#76849f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#b6c6ed",
+                    "tertiary-fixed": "#d8e2ff",
+                    "primary-container": "#0d1c32",
+                    "inverse-on-surface": "#eff1f3",
+                    "primary-fixed-dim": "#b9c7e4",
+                    "inverse-surface": "#2d3133",
+                    "on-secondary-fixed": "#351000",
+                    "on-primary-fixed-variant": "#39475f",
+                    "surface-container-highest": "#e0e3e5",
+                    "outline": "#75777e",
+                    "background": "#f7f9fb",
+                    "primary": "#000000",
+                    "on-background": "#191c1e",
+                    "on-primary": "#ffffff",
+                    "secondary": "#a04100",
+                    "surface-container-low": "#f2f4f6",
+                    "tertiary-container": "#091b39",
+                    "surface-tint": "#515f78",
+                    "on-tertiary-fixed": "#091b39",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#374767",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-container": "#fe6b00",
+                    "surface-variant": "#e0e3e5",
+                    "surface-dim": "#d8dadc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-desktop": "40px",
+                    "stack-lg": "48px",
+                    "margin-mobile": "16px",
+                    "stack-md": "24px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "h3": ["Public Sans"],
+                    "numeric-data": ["Inter"],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"],
+                    "h1": ["Public Sans"],
+                    "h2": ["Public Sans"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #f7f9fb; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 fixed top-0 docked full-width z-50">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, professional headshot of a male cybersecurity specialist in a dark suit, set against a blurred corporate office background. The lighting is soft and cinematic, emphasizing authority and trust. The overall aesthetic is high-end corporate with a focus on professional security and identity protection services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1-ELp1ii-PjGydillrS_79n2WnvU48GAkfSBA1qLwdyCMJSgCScSKIAYJ95WNpunL-3qenZ8rMKpKfsl5g8V1F5nFIGQn9MwDQgKbeGGFNCddHXLyb-iQSHXJbYAXiRg_Wx_yZQec-3b5jT3jsKbjgAD09cgG3FLOTL60Lv4Zl4RxTFm_1s9VBoY5se3XrB6-WwlpU9bXM0V_F6H67DzaQX_8hgHU39WVV7FRKbjSbFxvT7vrNVlyxhC3-uIXD1zos4tGJnFISEKn"/>
+</div>
+<span class="text-xl font-black text-[#0A192F] dark:text-white tracking-tighter">CreditShield</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-4 md:px-margin-desktop max-w-screen-xl mx-auto">
+<!-- Header Section -->
+<section class="mb-stack-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary-container font-label-caps text-label-caps uppercase tracking-widest bg-secondary-fixed/30 px-2 py-1 rounded">Real-Time Protection</span>
+</div>
+<h1 class="font-h1 text-h1 text-primary-container mb-2">Fraud Alert Center</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Monitor and resolve suspicious activities on your credit profiles immediately to prevent long-term damage.</p>
+</section>
+<!-- Bento Grid for Alerts & Summary -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Summary Stats Card -->
+<div class="lg:col-span-4 bg-white border border-outline-variant p-stack-md flex flex-col gap-stack-sm rounded-xl">
+<div class="flex justify-between items-start">
+<h3 class="font-h3 text-h3 text-primary-container">Security Status</h3>
+<span class="material-symbols-outlined text-secondary-container" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="mt-4 flex flex-col gap-4">
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-on-surface-variant font-medium">Critical Alerts</span>
+<span class="font-numeric-data text-secondary font-bold text-lg">02</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-on-surface-variant font-medium">Monitoring Points</span>
+<span class="font-numeric-data text-primary-container font-bold text-lg">14</span>
+</div>
+<div class="flex justify-between items-center py-3">
+<span class="text-on-surface-variant font-medium">Last Scan</span>
+<span class="font-numeric-data text-on-surface-variant">Just now</span>
+</div>
+</div>
+<button class="w-full mt-auto bg-primary-container text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity uppercase tracking-widest text-[12px]">
+                    Run Deep Scan
+                </button>
+</div>
+<!-- Instant Alerts List -->
+<div class="lg:col-span-8 flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="font-h3 text-[20px] text-primary-container">Recent Security Events</h3>
+<span class="text-label-caps font-label-caps text-on-primary-container">Showing 3 of 12</span>
+</div>
+<!-- Alert Item 1 (CRITICAL) -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(10,25,47,0.04)] relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary-container"></div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-secondary-fixed/50 flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<h4 class="font-h3 text-[18px] text-primary-container">New Credit Inquiry</h4>
+<p class="text-label-caps font-label-caps text-secondary uppercase">High Priority Alert</p>
+</div>
+</div>
+<span class="font-numeric-data text-on-surface-variant text-[12px]">2m ago</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">A hard credit pull was detected from "CHASE BANK" for a new Credit Card application in New York, NY.</p>
+<div class="flex flex-wrap gap-3">
+<button class="bg-secondary-container text-white px-6 py-2.5 rounded font-bold text-[13px] uppercase tracking-wide hover:opacity-90 transition-all">Report Fraud</button>
+<button class="border border-outline-variant text-primary-container px-6 py-2.5 rounded font-bold text-[13px] uppercase tracking-wide hover:bg-surface transition-all">Resolve</button>
+</div>
+</div>
+</div>
+<!-- Alert Item 2 (WARNING) -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(10,25,47,0.04)] relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary-container"></div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-secondary-fixed/50 flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<h4 class="font-h3 text-[18px] text-primary-container">Address Change Detected</h4>
+<p class="text-label-caps font-label-caps text-secondary uppercase">Immediate Action Required</p>
+</div>
+</div>
+<span class="font-numeric-data text-on-surface-variant text-[12px]">45m ago</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">Your primary mailing address was updated to an address in Austin, TX with Equifax.</p>
+<div class="flex flex-wrap gap-3">
+<button class="bg-secondary-container text-white px-6 py-2.5 rounded font-bold text-[13px] uppercase tracking-wide hover:opacity-90 transition-all">Report Fraud</button>
+<button class="border border-outline-variant text-primary-container px-6 py-2.5 rounded font-bold text-[13px] uppercase tracking-wide hover:bg-surface transition-all">Resolve</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dispute Center Entry Point (Multi-step Form Design) -->
+<section class="mt-stack-lg">
+<div class="bg-primary-container rounded-2xl p-8 relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute right-0 top-0 w-64 h-64 bg-on-primary-container/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-stack-md items-center">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-on-tertiary-container/20 text-on-tertiary-container font-label-caps text-[10px] px-3 py-1 rounded-full uppercase tracking-tighter">Dispute Center</span>
+</div>
+<h2 class="font-h2 text-h2 text-white mb-4">Launch Dispute Resolution</h2>
+<p class="font-body-md text-on-primary-container mb-8">Follow our 4-step secure verification process to challenge incorrect information on your credit report with all three major bureaus.</p>
+<!-- Progress Track Preview -->
+<div class="flex items-center gap-2 mb-8">
+<div class="flex-1 h-1.5 rounded bg-on-tertiary-container"></div>
+<div class="flex-1 h-1.5 rounded bg-on-tertiary-container/30"></div>
+<div class="flex-1 h-1.5 rounded bg-on-tertiary-container/30"></div>
+<div class="flex-1 h-1.5 rounded bg-on-tertiary-container/30"></div>
+</div>
+<button class="inline-flex items-center gap-3 bg-white text-primary-container font-bold px-8 py-4 rounded-xl hover:scale-[1.02] transition-transform">
+<span>START DISPUTE NOW</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="hidden md:block">
+<img class="rounded-xl shadow-2xl border border-white/10" data-alt="A clean, minimalist conceptual image of financial documents and a magnifying glass on a white desk. The lighting is bright and high-key with cool blue tones, representing clarity and precision in financial auditing. The scene includes a sleek smartphone showing a security lock icon, reinforcing the theme of a digital vault and secure credit monitoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Rf8tA9as_WdY_NFNJD5243Um2FULSk7XnC3ycxGCVdWIEYPUTBrJXjHpmJsET4rFrXwVD31x_MZ2nlmzwBx-T1Q04bsxX2P1jS1d7HK0P52r09zMGypfXRFhr1Flbof491M8lOT3EruglTJa4j5dMfv1l5bXM9VUXaFKGwoikYiNoUPgDSX-Fp0cVu0KvdIbN-f-DyvFEsVv_uqbca-6_AJTyiXkSv-7GcHpZq9asR_7wePDafgBOXF8gfizCTUrSYo9Okd58wJE"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Informational Section -->
+<section class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-6 border border-outline-variant bg-white rounded-xl">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="verified">verified</span>
+<h4 class="font-h3 text-[18px] text-primary-container mb-2">Zero Liability</h4>
+<p class="font-body-md text-on-surface-variant text-sm">You are 100% protected against fraudulent charges detected through our alert network.</p>
+</div>
+<div class="p-6 border border-outline-variant bg-white rounded-xl">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="timer">timer</span>
+<h4 class="font-h3 text-[18px] text-primary-container mb-2">Instant Response</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Most alerts are delivered within 60 seconds of suspicious activity reaching the bureau.</p>
+</div>
+<div class="p-6 border border-outline-variant bg-white rounded-xl">
+<span class="material-symbols-outlined text-primary-container mb-4 block" data-icon="support_agent">support_agent</span>
+<h4 class="font-h3 text-[18px] text-primary-container mb-2">Expert Concierge</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Live agents are available 24/7 to help you navigate complex identity theft recovery.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(10,25,47,0.04)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest">Score</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#0A192F] dark:text-white bg-slate-50 dark:bg-slate-800/50 rounded-xl px-3 py-1 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest">Analysis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="lock">lock</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="gavel">gavel</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest">Dispute</span>
+</a>
+</nav>
+</body></html>

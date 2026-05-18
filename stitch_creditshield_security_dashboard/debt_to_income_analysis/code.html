@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Debt-to-Income Analysis | CreditShield</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c5c6cd",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#44474d",
+                        "secondary-fixed": "#ffdbcc",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#7484a7",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#ffb693",
+                        "surface-container": "#eceef0",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "on-secondary-container": "#572000",
+                        "tertiary": "#000000",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#0d1c32",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#b9c7e4",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#76849f",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#b6c6ed",
+                        "tertiary-fixed": "#d8e2ff",
+                        "primary-container": "#0d1c32",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#39475f",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#75777e",
+                        "background": "#f7f9fb",
+                        "primary": "#000000",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "secondary": "#a04100",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-container": "#091b39",
+                        "surface-tint": "#515f78",
+                        "on-tertiary-fixed": "#091b39",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#374767",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#fe6b00",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "16px",
+                        "stack-md": "24px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Public Sans"],
+                        "numeric-data": ["Inter"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Public Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center w-full px-4 h-16 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a financial advisor in a sharp navy suit, looking confident and approachable against a blurred modern office background. The lighting is crisp and corporate, utilizing a bright and clean aesthetic that emphasizes security and expertise. The color palette is dominated by professional whites and deep navy blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3g5-G02TZipKME04PuyZFEedtDG1wp50OY7hoOcyauwWbrH5aWHRiUU1suL3Eqtvd3RS6UP9myLhSzzbUniGQIcxDV5FwYdIO4H8IirEs9TbWKqKaJlPiHwAlbTmTQzViSImc44HyjLNRAm-rv2dDT7jDjFryngLkYWaY2IRuU4uTy00cdP1jROpY9FBvh6SAXdRbGUu9QT-3n8Z9CzL_-Yb7TnRsks6fPcg-qhMAFEXRWq9tfeOPLVHRyFLOi2fXrm_WS2NHGXsy"/>
+</div>
+<span class="text-xl font-black text-[#0A192F] dark:text-white tracking-tighter">CreditShield</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-50 p-2 rounded-full transition-colors" data-icon="verified_user">verified_user</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-4 md:px-10 py-8">
+<!-- Dashboard Header -->
+<div class="mb-12">
+<h1 class="font-h1 text-h1 text-primary mb-2">Debt-to-Income Analysis</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A comprehensive breakdown of your monthly financial commitments relative to your gross income.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- DTI Gauge Card -->
+<div class="md:col-span-5 bg-white border border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">Current DTI Ratio</span>
+<div class="relative w-64 h-32 mb-8">
+<!-- Gauge Background -->
+<svg class="w-full h-full" viewbox="0 0 100 50">
+<path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#eceef0" stroke-linecap="butt" stroke-width="12"></path>
+<!-- Active Segment (34%) -->
+<path d="M 10 50 A 40 40 0 0 1 55 18" fill="none" stroke="#0d1c32" stroke-linecap="butt" stroke-width="12"></path>
+</svg>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
+<span class="font-h1 text-h1 block">34%</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">HEALTHY</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex justify-between items-center border-t border-surface-container pt-4">
+<span class="font-body-md text-on-surface-variant">Monthly Gross Income</span>
+<span class="font-numeric-data text-numeric-data font-bold">$8,450.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-on-surface-variant">Total Monthly Debt</span>
+<span class="font-numeric-data text-numeric-data font-bold">$2,873.00</span>
+</div>
+</div>
+</div>
+<!-- Category Breakdown -->
+<div class="md:col-span-7 bg-white border border-outline-variant rounded-xl p-8 relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary-container"></div>
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-h3 text-h3">Debt Categories</h2>
+<span class="flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full font-label-caps text-[10px] text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-sm" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        ENCRYPTED DATA
+                    </span>
+</div>
+<div class="space-y-8">
+<!-- Mortgage -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="home">home</span>
+<span class="font-body-md font-semibold">Mortgage &amp; Housing</span>
+</div>
+<span class="font-numeric-data text-numeric-data">$1,850.00</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[65%]"></div>
+</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2">21.9% OF INCOME</p>
+</div>
+<!-- Auto Loan -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="directions_car">directions_car</span>
+<span class="font-body-md font-semibold">Auto Loans</span>
+</div>
+<span class="font-numeric-data text-numeric-data">$545.00</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[19%]"></div>
+</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2">6.4% OF INCOME</p>
+</div>
+<!-- Credit Cards -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="credit_card">credit_card</span>
+<span class="font-body-md font-semibold">Credit Cards</span>
+</div>
+<span class="font-numeric-data text-numeric-data">$478.00</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[16%]"></div>
+</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant mt-2">5.7% OF INCOME</p>
+</div>
+</div>
+</div>
+<!-- Impact Analysis -->
+<div class="md:col-span-12 bg-primary-container text-white rounded-xl p-8 grid md:grid-cols-2 gap-10 items-center">
+<div>
+<h3 class="font-h2 text-h2 mb-4">How this impacts your Credit Health</h3>
+<p class="font-body-md text-slate-300 mb-6">Lenders use your DTI ratio to measure your ability to manage monthly payments and repay debts. Your current ratio of <span class="text-white font-bold">34%</span> falls within the "Good" range (below 36%), making you a strong candidate for competitive interest rates.</p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-caps text-[11px]">LENDER APPROVAL: HIGH</span>
+</div>
+<div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/20">
+<span class="material-symbols-outlined text-secondary" data-icon="trending_down">trending_down</span>
+<span class="font-label-caps text-[11px]">RATE RISK: LOW</span>
+</div>
+</div>
+</div>
+<div class="bg-white/5 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+<h4 class="font-h3 text-h3 mb-4 text-white">Security Intelligence</h4>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<div class="bg-secondary p-2 rounded h-fit">
+<span class="material-symbols-outlined text-white text-sm" data-icon="shield">shield</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Vault Protection</p>
+<p class="font-label-caps text-[11px] text-slate-400">All debt data is synced via 256-bit AES encryption.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="bg-slate-700 p-2 rounded h-fit">
+<span class="material-symbols-outlined text-white text-sm" data-icon="update">update</span>
+</div>
+<div>
+<p class="font-body-md font-bold">Real-time Sync</p>
+<p class="font-label-caps text-[11px] text-slate-400">Balances updated 14 minutes ago via secure API.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(10,25,47,0.04)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Score</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#0A192F] dark:text-white bg-slate-50 dark:bg-slate-800/50 rounded-xl px-3 py-1 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Analysis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Dispute</span>
+</a>
+</nav>
+</body></html>

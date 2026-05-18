@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CreditShield | Identity Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c5c6cd",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#44474d",
+                        "secondary-fixed": "#ffdbcc",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-container": "#7484a7",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#ffb693",
+                        "surface-container": "#eceef0",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "on-secondary-container": "#572000",
+                        "tertiary": "#000000",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#0d1c32",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#b9c7e4",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-container": "#76849f",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#b6c6ed",
+                        "tertiary-fixed": "#d8e2ff",
+                        "primary-container": "#0d1c32",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#351000",
+                        "on-primary-fixed-variant": "#39475f",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#75777e",
+                        "background": "#f7f9fb",
+                        "primary": "#000000",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "secondary": "#a04100",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary-container": "#091b39",
+                        "surface-tint": "#515f78",
+                        "on-tertiary-fixed": "#091b39",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#374767",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#fe6b00",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "16px",
+                        "stack-md": "24px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Public Sans"],
+                        "numeric-data": ["Inter"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "h1": ["Public Sans"],
+                        "h2": ["Public Sans"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .vault-gradient {
+            background: linear-gradient(180deg, #0A192F 0%, #112240 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User security profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a security expert in a clean, high-tech environment. The lighting is crisp and cool, highlighting facial details with a sophisticated, professional mood. The background is a soft-focus office with subtle blue and grey tones, reinforcing a sense of institutional trust and modern financial authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrE2jB6IqgMCU2-Cy1Ky9N7U8KWpahE4dSxbYybAnkyXPJ7BCPu5DaxXDe42CamEACDacSLJcq1RSrGUN0FqZyEUOTGBMUpctIKQpCitnfTXjA0AIbqEwXGYHoZrJ5biYWlVIKY2J7DNJJugEO4LCYoIVljMkMZMbDaSO9w6StFjj0ZMCrZHLf4lVw-Qu-4Aq_UYLO-MzE-Dh9uRf_Cod0cgSqw9XmW3EZtxC_nEVhEgu00pUnfXpkQcB9ecmdhmQi1MKCqLJnlPo0"/>
+</div>
+<span class="text-xl font-black text-[#0A192F] dark:text-white tracking-tighter">CreditShield</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</header>
+<main class="pb-32 px-margin-mobile pt-stack-md max-w-lg mx-auto">
+<!-- Security Status & Lock Toggle -->
+<section class="mb-stack-lg">
+<div class="bg-[#0A192F] p-stack-md rounded-xl shadow-[0_4px_20px_rgba(10,25,47,0.15)] text-white relative overflow-hidden">
+<div class="relative z-10 flex flex-col gap-base">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase opacity-60 tracking-widest">Vault Status</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<h2 class="font-h2 text-h2 leading-none">SECURE</h2>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps uppercase opacity-60 tracking-widest mb-2">Instant Lock</span>
+<button class="w-12 h-6 bg-secondary-container rounded-full relative transition-colors duration-200">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+</button>
+</div>
+</div>
+<div class="mt-stack-sm flex items-center gap-2 py-2 px-3 bg-white/5 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-emerald-400 text-sm" data-icon="lock_open">lock_open</span>
+<span class="font-numeric-data text-numeric-data">Session expires in 04:59</span>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-12 -bottom-12 opacity-10">
+<span class="material-symbols-outlined text-[160px]" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+</div>
+</section>
+<!-- Identity Bento Grid -->
+<div class="flex flex-col gap-stack-md">
+<h3 class="font-h3 text-h3 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="folder_managed">folder_managed</span>
+                Secured Assets
+            </h3>
+<!-- SSN Card -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm transition-all hover:border-primary-container">
+<div class="h-1 bg-primary-container w-full"></div>
+<div class="p-stack-md">
+<div class="flex justify-between items-center mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary-container" data-icon="fingerprint">fingerprint</span>
+</div>
+<span class="font-h3 text-body-lg font-bold">Social Security</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="visibility_off">visibility_off</span>
+</div>
+<div class="bg-surface-container-low rounded p-stack-sm border border-dashed border-outline-variant flex items-center justify-between">
+<span class="font-numeric-data text-numeric-data tracking-[0.3em] font-bold text-on-surface-variant">•••-••-8842</span>
+<button class="text-secondary font-label-caps text-label-caps uppercase hover:underline">Copy</button>
+</div>
+<div class="mt-4 flex gap-2">
+<div class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-100">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-[10px] uppercase">Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Passport Card -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm transition-all hover:border-primary-container">
+<div class="h-1 bg-secondary-container w-full"></div>
+<div class="p-stack-md">
+<div class="flex justify-between items-center mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary-container" data-icon="public">public</span>
+</div>
+<span class="font-h3 text-body-lg font-bold">Passport ID</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="more_vert">more_vert</span>
+</div>
+<div class="space-y-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-[10px] text-slate-500 uppercase">Document Number</span>
+<span class="font-numeric-data text-numeric-data">A449221003</span>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-[10px] text-slate-500 uppercase">Expiry Date</span>
+<span class="font-numeric-data text-numeric-data">OCT 2028</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-[10px] text-slate-500 uppercase">Country</span>
+<span class="font-numeric-data text-numeric-data">USA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secure Notes -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm transition-all hover:border-primary-container">
+<div class="h-1 bg-primary-container w-full"></div>
+<div class="p-stack-md">
+<div class="flex justify-between items-center mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-slate-50 flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary-container" data-icon="description">description</span>
+</div>
+<span class="font-h3 text-body-lg font-bold">Back-up Phrase</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="edit">edit</span>
+</div>
+<p class="text-sm text-on-surface-variant font-numeric-data italic bg-slate-50 p-3 rounded border border-slate-100">
+                        Securely stored encrypted string. Tap to decrypt and view sensitive login credentials for administrative accounts.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Security Badge Grid -->
+<section class="mt-stack-lg grid grid-cols-2 gap-gutter">
+<div class="flex flex-col items-center p-stack-sm bg-white rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary-container mb-2" data-icon="encrypted">encrypted</span>
+<span class="font-label-caps text-[10px] text-center uppercase">AES-256 Encrypted</span>
+</div>
+<div class="flex flex-col items-center p-stack-sm bg-white rounded border border-outline-variant">
+<span class="material-symbols-outlined text-primary-container mb-2" data-icon="policy">policy</span>
+<span class="font-label-caps text-[10px] text-center uppercase">Zero-Knowledge</span>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-4 w-14 h-14 bg-primary-container text-white rounded-full shadow-lg flex items-center justify-center z-40 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(10,25,47,0.04)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Score</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Analysis</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#0A192F] dark:text-white bg-slate-50 dark:bg-slate-800/50 rounded-xl px-3 py-1 scale-95 active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Vault</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#0A192F] dark:hover:text-white transition-all scale-95 active:scale-90 transition-transform duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-['Public_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Dispute</span>
+</div>
+</nav>
+</body></html>

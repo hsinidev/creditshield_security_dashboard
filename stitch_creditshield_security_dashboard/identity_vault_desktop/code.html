@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VaultGuard | Identity Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c6cd",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed-variant": "#374767",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-container": "#572000",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#39475f",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#75777e",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#0d1c32",
+                        "inverse-primary": "#b9c7e4",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#351000",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed-dim": "#ffb693",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#a04100",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#7484a7",
+                        "surface-tint": "#515f78",
+                        "primary-container": "#0d1c32",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#fe6b00",
+                        "on-surface-variant": "#44474d",
+                        "tertiary-fixed-dim": "#b6c6ed",
+                        "tertiary-container": "#091b39",
+                        "on-tertiary-fixed": "#091b39",
+                        "on-secondary-fixed-variant": "#7a3000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "numeric-data": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "h3": ["Public Sans"],
+                        "h1": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "numeric-data": ["14px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f7f9fb;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-white dark:bg-slate-950 h-screen w-64 border-r border-slate-200 dark:border-slate-800 font-['Public_Sans'] text-sm font-medium">
+<div class="px-6 py-8">
+<div class="text-lg font-black text-slate-900 dark:text-white mb-8">VaultGuard Pro</div>
+<div class="flex items-center gap-3 mb-8">
+<img alt="User Profile" class="w-10 h-10 rounded-lg object-cover" data-alt="A professional headshot of a financial security officer in a high-end corporate setting. The lighting is soft and professional, emphasizing a modern light-mode aesthetic with clean white backgrounds. The style is sharp and corporate, reflecting institutional authority and trust within a premium financial technology environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt7_x9IRuvjRnLzdC9-X8Xj_a5On-lbvkWBq_Ha24FQ1itKqkGi1i1E0qrk8blocHO9tBXYUdDE2dQBH6BU31lE_UeLZmJXX72hFn7GVxHBrh8iAVbf_dr5Tb_lo3YN1P1aHLK-xZBV6VSv1zqGvpdF0eTUl4CjWAVxAaDAkZ51mtwhlMJN5Etm9QxsuxN26VtlXxpUNJ9oE-0zOIycPm_eC0zIGnHgVIbcgs-Z_07AN8vdiMHo8_x-lc6Oyb8c8jXrWDHdAAcFK5b"/>
+<div>
+<div class="text-slate-900 font-bold">Alex Thorne</div>
+<div class="text-xs text-slate-500">Secure Session Active</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border-l-4 border-slate-900 dark:border-white px-4 py-3 flex items-center gap-3 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span>Credit Monitor</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Identity Shield</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Dispute Center</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 flex items-center gap-3 hover:bg-slate-50 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto px-6 py-6 space-y-1">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded text-xs font-bold uppercase tracking-widest mb-4">Upgrade Security</button>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Security Logs</span>
+</a>
+<a class="text-slate-500 px-4 py-2 flex items-center gap-3 hover:text-slate-900 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white sticky top-0 z-30 border-b border-slate-200 font-['Public_Sans'] antialiased tracking-tight">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<div class="text-xl font-bold text-slate-900 tracking-widest uppercase">VaultGuard</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 font-medium hover:text-slate-700 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 font-medium hover:text-slate-700 transition-colors" href="#">Pricing</a>
+<a class="text-slate-500 font-medium hover:text-slate-700 transition-colors" href="#">FAQ</a>
+<a class="text-slate-500 font-medium hover:text-slate-700 transition-colors" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<!-- Instant Lock Toggle -->
+<div class="flex items-center gap-3 bg-red-50 px-4 py-2 rounded-full border border-red-100">
+<span class="text-xs font-bold text-red-700 uppercase tracking-tighter">Instant Lock</span>
+<button class="relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-slate-200">
+<span class="translate-x-0 pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<button class="text-slate-900 font-semibold text-sm">Sign In</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-10 max-w-7xl w-full mx-auto">
+<div class="mb-10">
+<h1 class="font-h1 text-h1 text-on-surface mb-2">Identity Vault</h1>
+<p class="text-on-surface-variant font-body-md">Manage your institutional-grade secured assets and encrypted credentials.</p>
+</div>
+<!-- Dashboard Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md mb-stack-lg">
+<div class="bg-white p-6 border border-slate-200 rounded shadow-[4px_12px_4px_-4px_rgba(10,25,47,0.04)]">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-label-caps text-outline uppercase">Active Protections</span>
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+</div>
+<div class="text-h2 font-h2 text-on-surface">12 Assets</div>
+<div class="text-xs text-green-600 mt-2 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" data-weight="fill">check_circle</span>
+                        All systems operational
+                    </div>
+</div>
+<div class="bg-white p-6 border border-slate-200 rounded shadow-[4px_12px_4px_-4px_rgba(10,25,47,0.04)]">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-label-caps text-outline uppercase">Encryption Standard</span>
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+</div>
+<div class="text-h2 font-h2 text-on-surface">AES-256</div>
+<div class="text-xs text-slate-500 mt-2 font-medium">Military-grade vault protocol</div>
+</div>
+<div class="bg-white p-6 border border-slate-200 rounded shadow-[4px_12px_4px_-4px_rgba(10,25,47,0.04)] border-t-4 border-t-secondary-container">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-caps font-label-caps text-outline uppercase">Security Score</span>
+<span class="material-symbols-outlined text-secondary-container" data-icon="security">security</span>
+</div>
+<div class="text-h2 font-h2 text-on-surface">98/100</div>
+<div class="text-xs text-secondary-container mt-2 font-medium">Action recommended: Update Recovery</div>
+</div>
+</div>
+<!-- Vault Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+<!-- Social Security Card -->
+<div class="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-lg transition-shadow">
+<div class="h-1 bg-primary"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-slate-50 rounded flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="badge">badge</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Social Security</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 bg-green-50 text-green-700 text-[10px] font-bold rounded uppercase tracking-wider border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" data-weight="fill">verified</span> Verified
+                                        </span>
+<span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest">End-to-End Encrypted</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+<div class="space-y-4 border-t border-slate-50 pt-6">
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<span class="text-xs text-slate-500 font-medium">Document ID</span>
+<span class="font-numeric-data text-numeric-data tracking-widest text-on-surface">XXX - XX - 8842</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<span class="text-xs text-slate-500 font-medium">Issue Date</span>
+<span class="font-numeric-data text-numeric-data text-on-surface">OCT 2014</span>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 py-2.5 px-4 bg-primary text-on-primary rounded font-bold text-xs flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span> View Info
+                            </button>
+<button class="flex-1 py-2.5 px-4 bg-white border border-slate-200 text-slate-700 rounded font-bold text-xs flex items-center justify-center gap-2 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span> Copy ID
+                            </button>
+</div>
+</div>
+</div>
+<!-- Passport Card -->
+<div class="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-lg transition-shadow">
+<div class="h-1 bg-primary"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-slate-50 rounded flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="public">public</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Passport (USA)</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 bg-green-50 text-green-700 text-[10px] font-bold rounded uppercase tracking-wider border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" data-weight="fill">verified</span> Verified
+                                        </span>
+<span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest">RSA-4096 Secure</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+<div class="space-y-4 border-t border-slate-50 pt-6">
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<span class="text-xs text-slate-500 font-medium">Passport Number</span>
+<span class="font-numeric-data text-numeric-data tracking-widest text-on-surface">A992 •••• 12</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<span class="text-xs text-slate-500 font-medium">Expiration</span>
+<span class="font-numeric-data text-numeric-data text-on-surface">JAN 2028</span>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 py-2.5 px-4 bg-primary text-on-primary rounded font-bold text-xs flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span> View Info
+                            </button>
+<button class="flex-1 py-2.5 px-4 bg-white border border-slate-200 text-slate-700 rounded font-bold text-xs flex items-center justify-center gap-2 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span> Copy ID
+                            </button>
+</div>
+</div>
+</div>
+<!-- Bank Accounts Card -->
+<div class="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-lg transition-shadow">
+<div class="h-1 bg-primary"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-slate-50 rounded flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Bank Credentials</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 bg-green-50 text-green-700 text-[10px] font-bold rounded uppercase tracking-wider border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" data-weight="fill">verified</span> Verified
+                                        </span>
+<span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest">Encrypted Storage</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+<div class="space-y-4 border-t border-slate-50 pt-6">
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<div class="flex flex-col">
+<span class="text-xs text-slate-900 font-bold">Main Savings (Chase)</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">Routing: 021000021</span>
+</div>
+<span class="font-numeric-data text-numeric-data text-on-surface">•••• 9811</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-slate-50">
+<div class="flex flex-col">
+<span class="text-xs text-slate-900 font-bold">Investment (Vanguard)</span>
+<span class="text-[10px] text-slate-500 uppercase tracking-tighter">Account: 881-22910</span>
+</div>
+<span class="font-numeric-data text-numeric-data text-on-surface">•••• 4432</span>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 py-2.5 px-4 bg-primary text-on-primary rounded font-bold text-xs flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="key">key</span> Unlock
+                            </button>
+<button class="flex-1 py-2.5 px-4 bg-white border border-slate-200 text-slate-700 rounded font-bold text-xs flex items-center justify-center gap-2 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span> Add Asset
+                            </button>
+</div>
+</div>
+</div>
+<!-- Recovery Phrases Card -->
+<div class="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-lg transition-shadow border-t-4 border-t-secondary-container">
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-slate-50 rounded flex items-center justify-center border border-slate-100">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="password">password</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Master Phrases</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 bg-orange-50 text-secondary-container text-[10px] font-bold rounded uppercase tracking-wider border border-orange-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="warning">warning</span> Critical
+                                        </span>
+<span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest">Hardware Enclave Only</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400 hover:text-primary"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+<div class="space-y-4 border-t border-slate-50 pt-6">
+<div class="p-4 bg-slate-50 rounded border border-dashed border-slate-200 text-center">
+<p class="text-xs text-slate-500 leading-relaxed italic">"Encrypted recovery phrases are only visible after multi-factor biometric authentication."</p>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="w-full py-3 px-4 bg-secondary-container text-white rounded font-bold text-xs flex items-center justify-center gap-2 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="fingerprint">fingerprint</span> Authorize &amp; Reveal
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Promotion Section -->
+<section class="mt-stack-lg rounded-xl overflow-hidden bg-primary-container text-white p-10 flex flex-col md:flex-row items-center gap-10">
+<div class="flex-1">
+<span class="text-label-caps font-label-caps text-on-primary-container tracking-[0.2em] uppercase mb-4 block">Enhanced Protection</span>
+<h2 class="font-h2 text-h2 mb-4 leading-tight">Dark Web Monitoring is now active for your SSN.</h2>
+<p class="text-slate-400 font-body-md mb-8 max-w-lg">We scan millions of data points across the dark web daily to ensure your sensitive credentials haven't been leaked or traded.</p>
+<button class="bg-white text-primary px-8 py-3 rounded font-bold text-sm uppercase tracking-widest hover:bg-slate-100 transition-colors">Review Full Report</button>
+</div>
+<div class="w-full md:w-1/3">
+<img alt="Cybersecurity Monitoring" class="rounded-lg shadow-2xl" data-alt="A sophisticated digital interface displaying network scanning and cybersecurity data points in a high-tech control room environment. The image is dominated by cool blue and deep black tones, punctuated by clean white UI elements that evoke a sense of high-security monitoring. The atmosphere is professional, quiet, and intensely focused on data integrity and institutional safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9hGjPSHeO2cewzh_MYwFlN7JvaqKUePIDN7gJx1PGLCM1GsUEkUqDwoAvSAuunHiGX6_U64nhh7Qc4l_of9Ji2_msDRRDN8JmnrEBmPb_1t7dX2J9xbR_T18YyjKCPIh2PJ9IbfU0PA8AGLr48nxVX1Cixqm-vok8UoIs6SgA0bVisdr3SjRA66BQgTKEBF3_edgvxLYmlkTXp1LgJDxIz-GEwDJXY73uAehi_6cKYuq3C4wUGYqgX1UKN1evrehy75wCXsm1Ergm"/>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-auto w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="w-full py-8 px-6 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto">
+<p class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400">© 2024 VaultGuard Security. Institutional Grade Protection. Member FDIC.</p>
+<div class="flex gap-6">
+<a class="font-['Public_Sans'] text-xs text-slate-500 hover:text-slate-700 transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 hover:text-slate-700 transition-colors" href="#">Terms of Service</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 hover:text-slate-700 transition-colors" href="#">Security Disclosure</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 hover:text-slate-700 transition-colors" href="#">Compliance</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>
